@@ -58,7 +58,7 @@
 <body>
   <div class="reason-container">
     <div id="reason" class="reason-text">Loading reason…</div>
-    <div id="author" class="reason-author"></div>
+    <div id="author" class="reason-author" style="display: none;"></div>
   </div>
 
   <div class="footer">Powered by <a href="https://github.com/hotheadhacker/no-as-a-service">No-as-a-Service</a></div>
@@ -71,10 +71,8 @@
         const reason = data.reason;
 
         document.getElementById("reason").textContent = `“${reason}”`;
-        // document.getElementById("author").textContent = data.author;
       } catch (err) {
         document.getElementById("reason").textContent = "Failed to load reason.";
-        document.getElementById("author").textContent = "";
       }
     }
 
