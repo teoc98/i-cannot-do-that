@@ -21,6 +21,7 @@
       justify-content: center;
       color: #fff;
       text-align: center;
+      transition: background-image 0.5s ease;
     }
 
     .reason-container {
@@ -63,12 +64,25 @@
 
   <div class="footer">Powered by <a href="https://github.com/hotheadhacker/no-as-a-service">No-as-a-Service</a></div>
 
-  <script>
+<script>
+    async function loadRandomBackground() {
+      try {
+        const randomId = Math.floor(Math.random() * 1000);
+        const width = window.screen.width;
+        const height = window.screen.height;
+        const imageUrl = `https://picsum.photos/seed/landscape${randomId}/${width}/${height}.jpg?quality=95`;
+        document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("${imageUrl}")`;
+      } catch (err) {
+        console.log("Failed to load random background, using fallback");
+      }
+    }
+
     async function loadQuote() {
       try {
         const response = await fetch("https://naas.isalman.dev/no");
         const data = await response.json();
         const reason = data.reason;
+        console.log(reason);
 
         document.getElementById("reason").textContent = `“${reason}”`;
       } catch (err) {
@@ -77,6 +91,7 @@
     }
 
     loadQuote();
+    loadRandomBackground();
   </script>
 </body>
 </html>
