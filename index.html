@@ -105,6 +105,24 @@
       border-color: rgba(255, 255, 255, 0.6);
       transform: none;
     }
+
+    .source-link {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .source-link:hover {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>  
@@ -116,6 +134,8 @@
   <a id="reload-btn" href="" class="reload-btn" onclick="reload(); return false;">↻</a>
 
   <div class="footer">Powered by <a href="https://github.com/hotheadhacker/no-as-a-service">No-as-a-Service</a> & <a href="https://picsum.photos/">Picsum</a></div>
+
+  <a href="https://github.com/teoc98/i-cannot-do-that" class="source-link">Source</a>
 
 <script>
     let backgroundImage = null;
